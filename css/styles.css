@@ -1,4 +1,51 @@
-.icon-logo{
+
+.icon-logo {
     width: auto;
     height: 45px;
+}
+.navbar{
+    background: rgba(196,196,196,0.5);
+    margin-top: 0;
+}
+
+#blog {
+    background: #DEDEDE;
+    height: 100%;
+}
+
+#blog .container {
+    margin-top: 30px;
+}
+
+.blog-article-preview {
+    background: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.blog-article-preview .preview-article-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.blog-article-preview .preview-article-name {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.blog-article-preview .preview-article-description {
+    line-height: normal;
+    font-size: 20px;
+}
+
+.blog-article-preview .preview-article-read-more {
+    text-decoration: underline;
+    color: black;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.blog-article-preview .preview-article-read-more:hover {
+    font-weight: bolder;
 }

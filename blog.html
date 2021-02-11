@@ -2,10 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Blog - Sportsite</title>
+    <meta name="description" content="Better site for free workouts and recipes" />
+    <meta name="keywords" content="free sport workout recipes health life better training" />
+    <link rel="icon" type="image/png" href="img/icon.png" sizes="16x16">
+    <link rel="shortcut icon" href="img/icon.ico">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<!--TODO-->
-<h1>There will be blog page</h1>
+
+<!-- Navigation
+================================================== -->
+
+<nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="icon-logo" src="img/icon.png" alt=""/>
+            <span class="sr-only">Sportsite</span>
+        </a>
+        <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar"
+           aria-expanded="false" aria-controls="collapsingNavbar">
+            &#9776;
+        </a>
+        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-xs-right" data-toggle="collapse"
+           href="#collapsingMobileUser" aria-expanded="false" aria-controls="collapsingMobileUser">
+            <span class="icon-user"></span>
+        </a>
+        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel"
+             aria-labelledby="collapsingNavbar">
+            <ul class="nav navbar-nav pull-xs-right">
+                <li class="nav-item nav-item-toggable">
+                    <a class="nav-link" href="./blog.html">Блог</a>
+                </li>
+                <li class="nav-item nav-item-toggable">
+                    <a class="nav-link" href="./blog.html">Рецепти</a>
+                </li>
+                <li class="nav-item nav-item-toggable">
+                    <a class="nav-link" href="./workouts.html">Тренування</a>
+                </li>
+                <li class="nav-item nav-item-toggable">
+                    <a class="nav-link" href="contact-us.html">Контакти</a>
+                </li>
+                <li class="nav-item dropdown hidden-sm-down textselect-off">
+                    <a class="nav-link dropdown-toggle nav-dropdown-user" id="dropdownMenu2" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img src="img/icon-user.png" height="40" width="40" alt="Avatar" class="img-circle"> <span
+                            class="icon-caret-down"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-user dropdown-menu-animated"
+                         aria-labelledby="dropdownMenu2">
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="img/icon-user.png" height="60" width="60" alt="Avatar" class="img-circle">
+                            </div>
+                            <div class="media-body media-middle">
+                                <h5 class="media-heading">Ім'я Прізвище</h5>
+                                <h6>email@gmail.com</h6>
+                            </div>
+                        </div>
+                        <a href="#" class="dropdown-item text-uppercase">Переглянути профіль</a>
+                        <a href="#" class="dropdown-item text-uppercase">Обрані тренування</a>
+                        <a href="#" class="dropdown-item text-uppercase">Обрані рецепти</a>
+                        <a href="#" class="dropdown-item text-uppercase text-muted">Вийти</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="collapsingMobileUser" class="collapse navbar-toggleable-custom dropdown-menu-custom p-x-1 hidden-md-up"
+             role="tabpanel" aria-labelledby="collapsingMobileUser">
+            <div class="media m-t-1">
+                <div class="media-left">
+                    <img src="img/icon-user.png" height="60px" width="60px" alt="Avatar" class="img-circle">
+                </div>
+                <div class="media-body media-middle">
+                    <h5 class="media-heading">Ім'я Прізвище</h5>
+                    <h6>email@gmail.com</h6>
+                </div>
+            </div>
+            <a href="./user-profile.html" class="dropdown-item text-uppercase">Переглянути профіль</a>
+            <a href="#" class="dropdown-item text-uppercase">Обрані тренування</a>
+            <a href="#" class="dropdown-item text-uppercase">Обрані рецепти</a>
+            <a href="#" class="dropdown-item text-uppercase text-muted">Вийти</a>
+        </div>
+    </div>
+</nav>
+
+<section class="section-intro" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="blog-article-preview">
+                    <div class="row">
+                        <div class="col-sm-5 p-0">
+                            <img class="preview-article-img" alt=""
+                                 src="https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg">
+                        </div>
+                        <div class="col-md-7 p-4">
+                            <div class="preview-article-date">Пт, 3 лютого</div>
+                            <h3 class="preview-article-name">Заголовок 1</h3>
+                            <p class="preview-article-description">Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk
+                                adipiscing </p>
+                            <a href="#" class="preview-article-read-more">Прочитати більше</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="blog-article-preview">
+                    <div class="row">
+                        <div class="col-sm-5 p-0">
+                            <img class="preview-article-img" alt=""
+                                 src="https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg">
+                        </div>
+                        <div class="col-md-7 p-4">
+                            <div class="preview-article-date">Пт, 3 лютого</div>
+                            <h3 class="preview-article-name">Заголовок 1</h3>
+                            <p class="preview-article-description">Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk
+                                adipiscing </p>
+                            <a href="#" class="preview-article-read-more">Прочитати більше</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
