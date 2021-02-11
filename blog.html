@@ -8,6 +8,7 @@
     <meta name="description" content="Better site for free workouts and recipes" />
     <meta name="keywords" content="free sport workout recipes health life better training" />
     <link rel="icon" type="image/png" href="img/icon.png" sizes="16x16">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="shortcut icon" href="img/icon.ico">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/bootstrap-grid.css">
@@ -21,7 +22,7 @@
 <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img class="icon-logo" src="img/icon.png" alt=""/>
+            <img class="icon-logo" src="img/icon.png" alt="" />
             <span class="sr-only">Sportsite</span>
         </a>
         <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar"
@@ -93,44 +94,33 @@
 
 <section class="section-intro" id="blog">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div class="blog-article-preview">
+        <div id="article" class="row">
+            <div class="col-sm-12 col-md-10 offset-md-1">
+                <div class="blog-article full-article">
                     <div class="row">
-                        <div class="col-sm-5 p-0">
-                            <img class="preview-article-img" alt=""
-                                 src="https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg">
+                        <div class="col-1">
+                            <img alt="back" src="./img/icons/left-arrow.png" class="back-icon" onclick="closeArticle()">
                         </div>
-                        <div class="col-md-7 p-4">
-                            <div class="preview-article-date">Пт, 3 лютого</div>
-                            <h3 class="preview-article-name">Заголовок 1</h3>
-                            <p class="preview-article-description">Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk
-                                adipiscing </p>
-                            <a href="#" class="preview-article-read-more">Прочитати більше</a>
+                        <div class="col-11 text-center">
+                            <h1 id="article-title"></h1>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="blog-article-preview">
+                    <div class="row text-right">
+                        <p class="w-100 text-right" id="article-date"></p>
+                    </div>
                     <div class="row">
-                        <div class="col-sm-5 p-0">
-                            <img class="preview-article-img" alt=""
-                                 src="https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg">
-                        </div>
-                        <div class="col-md-7 p-4">
-                            <div class="preview-article-date">Пт, 3 лютого</div>
-                            <h3 class="preview-article-name">Заголовок 1</h3>
-                            <p class="preview-article-description">Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk
-                                adipiscing </p>
-                            <a href="#" class="preview-article-read-more">Прочитати більше</a>
+                        <div class="col-12">
+                            <img alt="blog_image" src="img/bg-header.jpg" id="article-image">
+                            <div id="article-text"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div id="articles" class="row"></div>
     </div>
 </section>
 
+<script src="js/blog.js" type="text/javascript"></script>
 </body>
 </html>
