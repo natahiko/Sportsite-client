@@ -134,3 +134,42 @@
 .recipe-category-name {
     text-align: center;
 }
+
+/*--- --- WORKOUTS --- --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- */
+
+#workout-list{
+    background-image: url("../img/workout-bg.png");
+    background-size: cover;
+    height: 100%;
+}
+
+.workout-content{
+    background: rgba(233,233,233,0.87);
+    padding: 20px;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.workout-card{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    background: #C4C4C4;
+    padding: 15px;
+    border-radius: 10px;
+}
+.workout-card:hover{
+    background: #b5b5b5;
+}
+.workout-card .workout-card-title{
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+.workout-card .workout-card-image{
+    height: 120px;
+    width: 100%;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+}
