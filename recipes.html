@@ -95,19 +95,53 @@
     <div class="h-100" style="overflow: auto">
         <div class="container">
             <div class="row" id="recipes-category-block">
-                <div class="col-5 d-none d-md-block"></div>
-                <div class="col-7">
+                <div class="col-12 col-md-5 d-none d-md-block"></div>
+                <div class="col-12 col-md-7">
                     <div class="row" id="recipes-category">
                     </div>
                 </div>
             </div>
-            <div class="row" id="recipes-list-block" style="background: white">
-                There will be list of recipies from category <span id="category-id"></span>
+            <div class="row" id="recipes-list-block">
+                <div class="col-12">
+                    <img alt="back" src="./img/icons/left-arrow.png"
+                         class="back-icon recipes-category-back-button">
+                </div>
+                <div style="background: white">
+                    There will be list of recipies from category <span id="category-id"></span>
+                </div>
+                <div class="col-12" id="recipes-list">
+                </div>
+            </div>
+            <div id="recipes-block">
+                <div class="row">
+                    <div class="col-12">
+                        <img alt="back" src="./img/icons/left-arrow.png"
+                             class="back-icon recipes-category-back-button">
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <img id="recipe_image" alt="recipe_image" class="preview-recipe-img">
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <h3 id="recipe-name">Title</h3>
+                        <h6>Калорійність рецепту: <span id="recipe-colories"></span></h6>
+                        <div class="row">
+                            <div class="col-5"><b>Інградієнт</b></div>
+                            <div class="col-3"><b>Кількість</b></div>
+                            <div class="col-1"><b>Б</b></div>
+                            <div class="col-1"><b></b></div>
+                            <div class="col-1"><b>В</b></div>
+                            <div class="col-1"><b>К</b></div>
+                        </div>
+                        <div class="row" id="recipe-ingrigients">
+                        </div>
+                        <p id="recipe-description"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<script src="./js/recipes.js" type="text/javascript"></script>
+<script src="./js/recipes.js" type="module"></script>
 </body>
 </html>
