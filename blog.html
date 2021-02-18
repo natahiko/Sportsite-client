@@ -93,13 +93,27 @@
 </nav>
 
 <section class="section-intro" id="blog">
-    <div class="container">
+    <div class="container h-100">
+        <div class="row mb-3">
+            <div class="col-9">
+                Blogs on page:
+                <select id="blog-size-selector" class="form-select" aria-label="Default select example">
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+            <div class="col-3 text-right">
+                Total blogs: <b id="total-blogs-amount"></b>
+            </div>
+        </div>
         <div id="article" class="row">
             <div class="col-sm-12 col-md-10 offset-md-1">
                 <div class="blog-article full-article">
                     <div class="row">
                         <div class="col-1">
-                            <img alt="back" src="./img/icons/left-arrow.png" class="back-icon" onclick="closeArticle()">
+                            <img alt="back" src="./img/icons/left-arrow.png" class="back-icon" id="article-back-button">
                         </div>
                         <div class="col-11 text-center">
                             <h1 id="article-title"></h1>
@@ -121,6 +135,6 @@
     </div>
 </section>
 
-<script src="js/blog.js" type="text/javascript"></script>
+<script src="js/blog.js" type="module"></script>
 </body>
 </html>

@@ -21,6 +21,26 @@
     margin-top: 0;
 }
 
+.pagination {
+    margin-bottom: 40px;
+}
+
+.pagination a {
+    background: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: fit-content;
+    display: inline-block;
+    margin: auto;
+}
+
+.pagination #pagination-next,
+.pagination #pagination-prev {
+    transform: scale(1.1);
+    transition: 1s, ease-in-out;
+    font-weight: bolder;
+}
+
 /*--- --- BLOG --- --- --- BLOG --- --- BLOG --- --- BLOG --- --- BLOG --- */
 
 #blog {
@@ -29,7 +49,7 @@
 }
 
 #blog .container {
-    margin-top: 30px;
+
 }
 
 .blog-article {
@@ -37,6 +57,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 20px;
+    height: calc(100% - 20px);
 }
 
 .blog-article .preview-article-img {
@@ -48,7 +69,11 @@
 
 .blog-article .preview-article-name {
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-article .preview-article-date {
+    font-size: 12px;
 }
 
 .blog-article .preview-article-description {
@@ -83,6 +108,26 @@
     float: left;
     margin-right: 30px;
     margin-bottom: 30px;
+}
+
+
+#articles {
+    overflow: auto !important;
+    padding-bottom: 40px;
+    max-height: 100%;
+}
+
+#articles .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#articles .row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
 }
 
 .back-icon:hover {
@@ -137,36 +182,39 @@
 
 /*--- --- WORKOUTS --- --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- */
 
-#workout-list{
+#workout-list {
     background-image: url("../img/workout-bg.png");
     background-size: cover;
     height: 100%;
 }
 
-.workout-content{
-    background: rgba(233,233,233,0.87);
+.workout-content {
+    background: rgba(233, 233, 233, 0.87);
     padding: 20px;
     max-height: 100%;
     overflow: auto;
 }
 
-.workout-card{
+.workout-card {
     margin-left: 20px;
     margin-bottom: 20px;
     background: #C4C4C4;
     padding: 15px;
     border-radius: 10px;
 }
-.workout-card:hover{
+
+.workout-card:hover {
     background: #b5b5b5;
 }
-.workout-card .workout-card-title{
+
+.workout-card .workout-card-title {
     text-align: center;
     color: black;
     font-weight: bolder;
     margin-bottom: 10px;
 }
-.workout-card .workout-card-image{
+
+.workout-card .workout-card-image {
     height: 120px;
     width: 100%;
     display: block;
