@@ -63,7 +63,7 @@ function loadPage () {
 
     $("#workout-size-selector").val(size)
     $("#workout-size-selector").on('change', function (value) {
-        sessionStorage.setItem('recipe-size', this.value);
+        sessionStorage.setItem('workout-size', this.value);
         loadWorkouts();
     })
     loadWorkouts();
