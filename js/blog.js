@@ -1,25 +1,5 @@
 import { URL } from './const.js'
 
-// const data = [{
-//     img_url: "https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg",
-//     name: "Заголовок 1",
-//     date: "Пт, 1 лютого",
-//     description: "Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk adipiscing",
-//     id: 1
-// }, {
-//     img_url: "https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg",
-//     name: "Заголовок 2",
-//     date: "Пт, 2 лютого",
-//     description: "Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk adipiscing",
-//     id: 2
-// }, {
-//     img_url: "https://www.verywellfit.com/thmb/LeBe7RNtzbJwyKRmH8ditmJ1NKg=/1500x1020/filters:no_upscale():max_bytes(150000):strip_icc()/Snapwire-Running-27-66babd0b2be44d9595f99d03fd5827fd.jpg",
-//     name: "Заголовок 3",
-//     date: "Пт, 3 лютого",
-//     description: "Lorem ipsum dolor sit hhndkd amet, consectetur bnhjjjk adipiscing",
-//     id: 3
-// }]
-
 function loadBlogs () {
     $("#articles").html("");
 
@@ -91,7 +71,7 @@ function loadPage () {
 
     let page = sessionStorage.getItem('blog-page');
     let size = sessionStorage.getItem('blog-size');
-    console.log(page + " - " + size)
+
     if (page === null) {
         sessionStorage.setItem('blog-page', 0);
         page = 0;

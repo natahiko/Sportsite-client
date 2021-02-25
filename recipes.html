@@ -20,7 +20,7 @@
 
 <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/index.html">
             <img class="icon-logo" src="img/icon.png" alt="" />
             <span class="sr-only">Sportsite</span>
         </a>
@@ -39,7 +39,7 @@
                     <a class="nav-link" href="./blog.html">Блог</a>
                 </li>
                 <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="./recipes.html">Рецепти</a>
+                    <a class="nav-link" href="#">Рецепти</a>
                 </li>
                 <li class="nav-item nav-item-toggable">
                     <a class="nav-link" href="./workouts.html">Тренування</a>
@@ -102,21 +102,36 @@
                 </div>
             </div>
             <div class="row" id="recipes-list-block">
-                <div class="col-12">
+                <div class="col-3">
                     <img alt="back" src="./img/icons/left-arrow.png"
-                         class="back-icon recipes-category-back-button">
+                         class="back-icon recipes-category-back-button" id="recipes-category-back-button">
                 </div>
-                <div style="background: white">
-                    There will be list of recipies from category <span id="category-id"></span>
+                <div class="col-5 p-2">
+                    <span class="bg-white p-2">On page:</span>
+                    <select id="recipe-size-selector" class="form-select" aria-label="Default select example">
+                        <option value="1">1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="col-4 p-2">
+                    <span class="bg-white p-2">Total: <span id="total-recipe-amount"></span></span>
                 </div>
                 <div class="col-12" id="recipes-list">
+                </div>
+                <div class='col-12'>
+                    <div class='row pagination'>
+                        <div class='col-4 text-left' id='pagination-prev'></div>
+                        <div class='col-4 text-center' id="pagination-current"></div>
+                        <div class='col-4 text-right' id='pagination-next'></div>
+                    </div>
                 </div>
             </div>
             <div id="recipes-block">
                 <div class="row">
                     <div class="col-12">
                         <img alt="back" src="./img/icons/left-arrow.png"
-                             class="back-icon recipes-category-back-button">
+                             class="back-icon recipes-category-back-button" id="recipes-category-back-button2">
                     </div>
                     <div class="col-12 col-md-5">
                         <img id="recipe_image" alt="recipe_image" class="preview-recipe-img">

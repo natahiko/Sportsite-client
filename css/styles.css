@@ -36,7 +36,6 @@
 
 .pagination #pagination-next,
 .pagination #pagination-prev {
-    transform: scale(1.1);
     transition: 1s, ease-in-out;
     font-weight: bolder;
 }
@@ -194,6 +193,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    margin-bottom: 20px;
 }
 
 #recipes-list .row {
@@ -218,6 +218,10 @@
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 40px;
+}
+
+#recipe-description {
+    margin-top: 40px !important;
 }
 
 /*--- --- WORKOUTS --- --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- */
