@@ -57,6 +57,7 @@ function loadPage () {
         sessionStorage.setItem('workout-size', 2);
         size = 2;
     }
+    $("#search-button").on('click', () => searchWorkout());
     // $("#workout-list").hide()
     // $("#workout").hide()
 
@@ -66,6 +67,24 @@ function loadPage () {
         loadWorkouts();
     })
     loadWorkouts();
+}
+
+function searchWorkout () {
+    const searchValue = $("#workout-search").val();
+    // TODO get data from server
+    $("#workout-list").html("<h1>Результати пошуку....." + searchValue + "</h1>")
+
+    $("#total-workout-amount").html(10); //data.totalElements
+    // data.content.forEach(workout => {
+    //     $("#workout-list").append("<div class='col-6 col-md-4'>" +
+    //         "<div class='workout-card'>" +
+    //         "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
+    //         "<p>" + workout.description + "</p>" +
+    //         "<img class='workout-card-image' alt=''" +
+    //         "src='" + workout.image + "'>" +
+    //         "</div></div>")
+    // })
+    addPaginationPart(page, data.totalPages, data.first, data.last)
 }
 
 loadPage();

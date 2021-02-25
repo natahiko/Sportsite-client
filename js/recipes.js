@@ -163,12 +163,49 @@ function loadPage () {
     $("#recipes-list-block").hide()
     $("#recipes-block").hide()
 
+    $("#search-button").on('click', () => searchRecipes());
+
     $("#recipe-size-selector").val(size)
     $("#recipe-size-selector").on('change', function (value) {
         sessionStorage.setItem('recipe-size', this.value);
         openAllRecipiesCategory();
     })
     loadRecipesCategory();
+}
+
+function searchRecipes () {
+    const searchValue = $("#recipes-search").val();
+    // TODO get data from server
+    $("#workout-list").html("<h1>Результати пошуку.....</h1>")
+
+    $("#recipes-category-block").hide()
+    $("#recipes-list-block").show(200)
+    $("#recipes-block").hide()
+    $("#recipes-category-back-button").on('click', function () {
+        $("#recipes-list-block").hide()
+        $("#recipes-block").hide()
+        $("#recipes-category-block").show(500)
+    })
+
+    $("#recipes-list").html("<h1>Результати пошуку .... " + searchValue + "</h1>")
+
+    // $.get(URL + "/recipe?category=" + id + "&page=" + page + "&size=" + size, function (data, err) {
+    //
+    $("#total-recipe-amount").html('10'); //data.totalElements
+    //
+    //     data.content.forEach(recipe => {
+    //         $("#recipes-list").append("<div class='row' id='recipe-id" + recipe.id + "'>" +
+    //             "    <div class='col-4 p-0'>" +
+    //             "    <img class='preview-recipe-img' alt='' src='" + recipe.image + "' />" +
+    //             "    </div>" +
+    //             "    <div class='col-8 p-3'>" +
+    //             "       <h3 class='text-truncate'>" + recipe.name + "</h3>" +
+    //             "       <p>" + recipe.description.substring(0, 50) + "...</p>" +
+    //             "</div></div>")
+    //         $("#recipe-id" + recipe.id).on('click', () => openRecipe(recipe))
+    //     })
+    //     addPaginationPart(page, data.totalPages, data.first, data.last);
+    // })
 }
 
 loadPage();
