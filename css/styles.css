@@ -226,10 +226,13 @@
 
 /*--- --- WORKOUTS --- --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- */
 
-#workout-list {
+#workouts {
     background-image: url("../img/workout-bg.png");
     background-size: cover;
     height: 100%;
+}
+#workouts p {
+    line-height: initial;
 }
 
 .workout-content {
