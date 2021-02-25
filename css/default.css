@@ -6871,8 +6871,7 @@ a.bg-danger:focus, a.bg-danger:hover {
 }
 
 .bg-white {
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: #fff
 }
 
 .section-intro, .section-features, .section-pricing, .section-testimonials, .section-text, .section-signup {

@@ -36,6 +36,7 @@
 
 .pagination #pagination-next,
 .pagination #pagination-prev {
+    transform: scale(1.1);
     transition: 1s, ease-in-out;
     font-weight: bolder;
 }
@@ -193,7 +194,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-bottom: 20px;
 }
 
 #recipes-list .row {
@@ -220,19 +220,12 @@
     padding: 40px;
 }
 
-#recipe-description {
-    margin-top: 40px !important;
-}
-
 /*--- --- WORKOUTS --- --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- --- WORKOUTS --- */
 
-#workouts {
+#workout-list {
     background-image: url("../img/workout-bg.png");
     background-size: cover;
     height: 100%;
-}
-#workouts p {
-    line-height: initial;
 }
 
 .workout-content {
@@ -267,4 +260,126 @@
     display: block;
     margin: auto;
     object-fit: contain;
+}
+/*--- --- Sign --- --- --- Sign --- --- Sign --- --- Sign --- --- Sign --- --- Sign --- */
+#sign .container {
+    margin-top: 50px;
+    overflow: auto;
+}
+.confirm_reg {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 399px;
+    height: 80px;
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 44px;
+    background: #A3B4CD;
+}
+.confirm_auth {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 221px;
+    height: 80px;
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 44px;
+    background: #A3B4CD;
+}
+input[type=text], input[type=password] {
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 44px;
+    width: 100%;
+    height: 44px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+.sign-content {
+    background: rgba(233, 233, 233, 0.87);
+    padding: 20px;
+    max-height: 100%;
+    overflow: auto;
+}
+.psw{
+    position: relative;
+
+    left: 42%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 227px;
+    height: 38px;
+
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+
+
+    color: #000000;
+
+}
+/*--- --- Profile --- --- --- Profile --- --- Profile --- --- Profile --- --- Profile --- --- Profile --- */
+select {
+    width: 15%;
+}
+.picture{
+    width: 100px;
+    height: 80px;
+    float: left;
+    padding-right:10px;
+    align-items: center;
+}
+.txt{
+    float: left;
+    padding-right:10px;
+    align-items: center;
+}
+.field{
+    float:right;
+    -moz-appearance: textfield;
+    width: 40em;
+    align-items: center;
+}
+.param {
+    float:left;
+    align-items: center;
+}
+
+.field::-webkit-inner-spin-button {
+    display: none;
+}
+.avatar{
+    float: left;
+    padding: 21px 150px 0 203px;
+    width: 60%;
+    height: 60%;
+}
+.avatar_text{
+    padding: 116px 100px 0 100px;
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 44px;
+}
+.avatar_text2{
+    font-family: Gothic A1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 44px;
 }
