@@ -106,6 +106,23 @@
     margin: 5px;
 }
 
+.add-icon::before {
+    background-image: url("../img/icons/add.png");
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    content: "";
+    background-size: contain;
+}
+
+#add-blog {
+    cursor: pointer;
+}
+
+#add-blog:hover {
+    text-decoration: underline;
+}
+
 #article-image {
     width: 40%;
     float: left;
@@ -136,6 +153,10 @@
 .back-icon:hover {
     transform: scale(1.1);
     transition: 1.5s, ease-in-out;
+}
+
+#add-article form .form-group {
+    margin-bottom: 0;
 }
 
 /*--- --- RECIPES --- --- --- RECIPES --- --- RECIPES --- --- RECIPES --- --- RECIPES --- --- RECIPES --- */

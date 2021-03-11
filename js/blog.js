@@ -1,6 +1,7 @@
-import { URL } from './const.js'
+import { URL, ImageUploadURL } from './const.js'
 
 function loadBlogs () {
+    $("#add-article").hide();
     $("#articles").html("");
 
     const page = sessionStorage.getItem('blog-page');
@@ -37,6 +38,7 @@ function loadBlogs () {
 
 
 function openArticle (id) {
+    $("#add-article").hide();
     $.get(URL + "/article/" + id, function (data, err) {
         $("#article-title").text(data.title);
         $("#article-date").text(data.creationDate);
@@ -67,7 +69,10 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
     });
 }
 
+let newBlogImage = null
+
 function loadPage () {
+    $("#add-article").hide();
 
     let page = sessionStorage.getItem('blog-page');
     let size = sessionStorage.getItem('blog-size');
@@ -85,7 +90,93 @@ function loadPage () {
         sessionStorage.setItem('blog-size', this.value);
         loadBlogs();
     })
+    $("#add-blog").on('click', function () {
+        $("#add-article").show(200);
+        $("#article").hide();
+        $("#articles").hide();
+    })
+    $("#submit-add-article").on('click', uploadBlog)
+    $("#blog-image-input").on('change', function () {
+        var selectedFile = this.files[0];
+        selectedFile.convertToBase64(function (base64) {
+            newBlogImage = base64;
+        })
+    });
     loadBlogs();
+}
+
+File.prototype.convertToBase64 = function (callback) {
+    var reader = new FileReader();
+    reader.onloadend = function (e) {
+        callback(e.target.result, e.target.error);
+    };
+    reader.readAsDataURL(this);
+};
+
+function uploadBlog () {
+    const title = $("#blog-title-input").val()
+    if (title === "") {
+        alert("Назва блогу не може бути пустим полем!")
+        return
+    }
+    const text = $("#blog-text-input").val()
+    if (text === "") {
+        alert("Текст блогу не може бути пустим полем!")
+        return
+    }
+    const date = new Date().toISOString().substring(0, 10)
+    if (!newBlogImage) {
+        $.ajax({
+            type: "POST",
+            url: URL + "/article",
+            data: JSON.stringify({
+                "title": title,
+                "text": text,
+                "creationDate": date
+            }),
+            success: (data) => {
+                clearCloseAddBlog()
+            },
+            contentType: "application/json"
+        });
+    } else {
+        const index = newBlogImage.indexOf(',')
+        var data = new FormData();
+        data.append('image', newBlogImage.substring(+index + +1));
+
+        $.ajax({
+            type: "POST",
+            url: ImageUploadURL,
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: (data) => {
+                $.ajax({
+                    type: "POST",
+                    url: URL + "/article",
+                    data: JSON.stringify({
+                        "title": title,
+                        "text": text,
+                        "image": data.data.display_url,
+                        "creationDate": date
+                    }),
+                    success: (data) => {
+                        clearCloseAddBlog()
+                    },
+                    contentType: "application/json"
+                });
+            },
+        });
+    }
+}
+
+function clearCloseAddBlog () {
+    $("#blog-title-input").val("")
+    $("#blog-text-input").val("")
+
+    $("#add-article").hide(200);
+    $("#articles").show();
 }
 
 loadPage();

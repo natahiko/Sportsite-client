@@ -95,7 +95,7 @@
 <section class="section-intro" id="blog">
     <div class="container h-100">
         <div class="row mb-3">
-            <div class="col-9">
+            <div class="col-5">
                 Blogs on page:
                 <select id="blog-size-selector" class="form-select" aria-label="Default select example">
                     <option value="2">2</option>
@@ -104,8 +104,11 @@
                 </select>
             </div>
 
-            <div class="col-3 text-right">
+            <div class="col-4 text-right">
                 Total blogs: <b id="total-blogs-amount"></b>
+            </div>
+            <div class="col-3 text-right" id="add-blog">
+                Add <span class="add-icon"></span>
             </div>
         </div>
         <div id="article" class="row">
@@ -132,6 +135,23 @@
             </div>
         </div>
         <div id="articles" class="row"></div>
+        <div id="add-article">
+            <h2>Додати нову статтю</h2>
+            <div class="form-group">
+                <label for="blog-title-input">Назва:</label>
+                <input type="text" class="form-control" id="blog-title-input" placeholder="Введіть назву">
+            </div>
+
+            <div class="form-group">
+                <input id="blog-image-input" type="file" />
+            </div>
+            <div class="form-group">
+                <label for="blog-text-input">Текст</label>
+                <textarea class="form-control" id="blog-text-input" rows="5"></textarea>
+            </div>
+            <br />
+            <button id="submit-add-article" type="submit" class="btn btn-primary">Додати</button>
+        </div>
     </div>
 </section>
 
