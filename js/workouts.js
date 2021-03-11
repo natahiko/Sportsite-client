@@ -11,10 +11,16 @@ function loadWorkouts () {
 
         $("#total-workout-amount").html(data.totalElements);
         data.content.forEach(workout => {
+
+            let stars = ""
+            for (let i = 0; i < workout.complexity; i++) {
+                stars += "<span class='star-icon'></span>"
+            }
             $("#workout-list").append("<div class='col-6 col-md-4'>" +
                 "<div class='workout-card'>" +
                 "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
-                "<p>" + workout.description + "</p>" +
+                // "<p>" + workout.description + "</p>" +
+                "<div class='workout-complexity'>" + stars + "</div>" +
                 "<img class='workout-card-image' alt=''" +
                 "src='" + workout.image + "'>" +
                 "</div></div>")
@@ -58,6 +64,8 @@ function loadPage () {
         size = 2;
     }
     $("#search-button").on('click', () => searchWorkout());
+    $("#workout-sort_by-selector").on('change', () => searchWorkout());
+    $("#workout-filter_by-selector").on('change', () => searchWorkout());
     // $("#workout-list").hide()
     // $("#workout").hide()
 
@@ -71,20 +79,55 @@ function loadPage () {
 
 function searchWorkout () {
     const searchValue = $("#workout-search").val();
-    // TODO get data from server
-    $("#workout-list").html("<h1>Результати пошуку....." + searchValue + "</h1>")
+    const sort_option = $("#workout-sort_by-selector").val();
+    const complexity = $("#workout-filter_by-selector").val();
 
-    $("#total-workout-amount").html(10); //data.totalElements
-    // data.content.forEach(workout => {
-    //     $("#workout-list").append("<div class='col-6 col-md-4'>" +
-    //         "<div class='workout-card'>" +
-    //         "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
-    //         "<p>" + workout.description + "</p>" +
-    //         "<img class='workout-card-image' alt=''" +
-    //         "src='" + workout.image + "'>" +
-    //         "</div></div>")
-    // })
-    addPaginationPart(page, data.totalPages, data.first, data.last)
+    if (searchValue === "" && sort_option === 'null' && complexity === 'null') {
+        return loadWorkouts();
+    }
+
+    const [sort, descending] = sort_option.split("_")
+    const sort_by = sort_option === 'null' ? "" : `sort_by=${ sort }&descending=${ descending }`
+    const search_by = searchValue ? "&query=" + searchValue : ""
+    const filter_by = complexity === 'null' ? "" : "&filterby=complexity&filtervalue=" + complexity
+
+    $("#workout-list").html("");
+    $.get(URL + encodeURI(`/exercise/query?${ sort_by }${ search_by }${ filter_by }`), function (data) {
+
+        $("#total-workout-amount").html(data.length);
+        if (data.length < 1)
+            $("#workout-list").append("<h1>Не знайдено тренувань, що відповідають запиту</h1>");
+        data.forEach(workout => {
+            let stars = ""
+            for (let i = 0; i < workout.complexity; i++) {
+                stars += "<span class='star-icon'></span>"
+            }
+
+            $("#workout-list").append("<div class='col-6 col-md-4'>" +
+                "<div class='workout-card'>" +
+                "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
+                // "<p>" + workout.description + "</p>" +
+                "<div class='workout-complexity'>" + stars + "</div>" +
+                "<img class='workout-card-image' alt=''" +
+                "src='" + workout.image + "'>" +
+                "</div></div>")
+        })
+        // console.log(sort_by)
+        // TODO get data from server
+        // $("#workout-list").html("<h1>Результати пошуку....." + searchValue + "</h1>")
+
+        // $("#total-workout-amount").html(10); //data.totalElements
+        // data.content.forEach(workout => {
+        //     $("#workout-list").append("<div class='col-6 col-md-4'>" +
+        //         "<div class='workout-card'>" +
+        //         "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
+        //         "<p>" + workout.description + "</p>" +
+        //         "<img class='workout-card-image' alt=''" +
+        //         "src='" + workout.image + "'>" +
+        //         "</div></div>")
+        // })
+        addPaginationPart(0, 1, true, true)
+    })
 }
 
 loadPage();

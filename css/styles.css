@@ -16,6 +16,22 @@
     height: 45px;
 }
 
+.down-arrow::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-image: url("../img/icons/down-arrow.png");
+}
+
+.up-arrow::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-image: url("../img/icons/up-arrow.png");
+}
+
 .navbar {
     background: rgba(196, 196, 196, 0.5);
     margin-top: 0;
@@ -274,6 +290,20 @@
     color: black;
     font-weight: bolder;
     margin-bottom: 10px;
+}
+
+#workout-sort_by-selector {
+    width: fit-content;
+}
+
+.star-icon::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-image: url("../img/icons/star.png");
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .workout-card .workout-card-image {
