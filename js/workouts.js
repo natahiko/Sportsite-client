@@ -1,6 +1,8 @@
 import { URL } from './const.js'
 
 function loadWorkouts () {
+    $("#workout-list").show()
+    $("#workout").hide()
 
     const page = sessionStorage.getItem('workout-page');
     const size = sessionStorage.getItem('workout-size');
@@ -17,13 +19,17 @@ function loadWorkouts () {
                 stars += "<span class='star-icon'></span>"
             }
             $("#workout-list").append("<div class='col-6 col-md-4'>" +
-                "<div class='workout-card'>" +
+                "<div class='workout-card' id='workout-" + workout.id + "'>" +
                 "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
                 // "<p>" + workout.description + "</p>" +
                 "<div class='workout-complexity'>" + stars + "</div>" +
                 "<img class='workout-card-image' alt=''" +
                 "src='" + workout.image + "'>" +
                 "</div></div>")
+
+            $("#workout-" + workout.id).on("click", function () {
+                openWorkout(JSON.stringify(workout))
+            })
         })
         addPaginationPart(page, data.totalPages, data.first, data.last)
     })
@@ -60,24 +66,29 @@ function loadPage () {
         page = 0;
     }
     if (size === null) {
-        sessionStorage.setItem('workout-size', 2);
-        size = 2;
+        sessionStorage.setItem('workout-size', 5);
+        size = 5;
     }
     $("#search-button").on('click', () => searchWorkout());
     $("#workout-sort_by-selector").on('change', () => searchWorkout());
     $("#workout-filter_by-selector").on('change', () => searchWorkout());
-    // $("#workout-list").hide()
-    // $("#workout").hide()
+    $("#workout").hide()
 
     $("#workout-size-selector").val(size)
     $("#workout-size-selector").on('change', function (value) {
         sessionStorage.setItem('workout-size', this.value);
         loadWorkouts();
     })
+    $("#workout-back-button").on('click', function (value) {
+        $("#workout-list").show()
+        $("#workout").hide()
+    })
     loadWorkouts();
 }
 
 function searchWorkout () {
+    $("#workout-list").show()
+    $("#workout").hide()
     const searchValue = $("#workout-search").val();
     const sort_option = $("#workout-sort_by-selector").val();
     const complexity = $("#workout-filter_by-selector").val();
@@ -112,22 +123,26 @@ function searchWorkout () {
                 "src='" + workout.image + "'>" +
                 "</div></div>")
         })
-        // console.log(sort_by)
-        // TODO get data from server
-        // $("#workout-list").html("<h1>Результати пошуку....." + searchValue + "</h1>")
-
-        // $("#total-workout-amount").html(10); //data.totalElements
-        // data.content.forEach(workout => {
-        //     $("#workout-list").append("<div class='col-6 col-md-4'>" +
-        //         "<div class='workout-card'>" +
-        //         "<h5 class='workout-card-title'>" + workout.name + "</h5>" +
-        //         "<p>" + workout.description + "</p>" +
-        //         "<img class='workout-card-image' alt=''" +
-        //         "src='" + workout.image + "'>" +
-        //         "</div></div>")
-        // })
         addPaginationPart(0, 1, true, true)
     })
 }
+
+function openWorkout (data) {
+    const workout = JSON.parse(data)
+    let stars = ""
+    for (let i = 0; i < workout.complexity; i++) {
+        stars += "<span class='star-icon'></span>"
+    }
+    $("#workout-title").html(workout.name)
+    $("#workout-description").html(workout.description)
+    $("#workout-rest").html(workout.restTime)
+    $("#workout-complexity").html(stars)
+    $("#workout-amount").html(workout.amount)
+    $("#workout-image").attr('src', workout.image);
+
+    $("#workout-list").hide()
+    $("#workout").show()
+}
+
 
 loadPage();

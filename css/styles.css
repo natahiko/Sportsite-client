@@ -306,6 +306,16 @@
     margin-right: 5px;
 }
 
+#workout-image {
+    width: 100%;
+}
+
+#workout-complexity {
+    text-align: right;
+    float: right;
+    width: fit-content;
+}
+
 .workout-card .workout-card-image {
     height: 120px;
     width: 100%;
