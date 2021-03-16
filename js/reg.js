@@ -72,13 +72,37 @@ function validateAndSend () {
         alert("Введені паролі не збігаються")
         return
     }
+    const birthdate = $("#user_birth").val()
+
+    $("#loader").show()
+    $.ajax({
+        type: "POST",
+        url: URL + "/user/sign_up",
+        data: JSON.stringify({
+            "name": name,
+            "email": email,
+            "password": password,
+            "height": height,
+            "weight": weight,
+            "chestCircumference": chest,
+            "waistCircumference": waist,
+            "hipsCircumference": hips,
+            "Birthday": birthdate
+        }),
+        success: (data) => {
+            $("#loader").hide()
+            alert("Ви успішно зареєстровані")
+            window.location = './auth.html'
+        },
+        contentType: "application/json"
+    });
 }
 
 function loadPage () {
     $("#submit_registration").on('click', function () {
         validateAndSend()
     })
-    console.log('added')
+    $("#loader").hide()
 }
 
 loadPage();
