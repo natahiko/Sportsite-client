@@ -20,7 +20,7 @@
 
 <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./">
             <img class="icon-logo" src="img/icon.png" alt="" />
             <span class="sr-only">Sportsite</span>
         </a>
@@ -35,58 +35,13 @@
         <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel"
              aria-labelledby="collapsingNavbar">
             <ul class="nav navbar-nav pull-xs-right">
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="./blog.html">Блог</a>
+                <li class="nav-item nav-item-toggable show-unauthorised">
+                    <a class="nav-link" href="#">Блог</a>
                 </li>
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="./recipes.html">Рецепти</a>
-                </li>
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="./workouts.html">Тренування</a>
-                </li>
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="contact-us.html">Контакти</a>
-                </li>
-                <li class="nav-item dropdown hidden-sm-down textselect-off">
-                    <a class="nav-link dropdown-toggle nav-dropdown-user" id="dropdownMenu2" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        <img src="img/icon-user.png" height="40" width="40" alt="Avatar" class="img-circle"> <span
-                            class="icon-caret-down"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-user dropdown-menu-animated"
-                         aria-labelledby="dropdownMenu2">
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="img/icon-user.png" height="60" width="60" alt="Avatar" class="img-circle">
-                            </div>
-                            <div class="media-body media-middle">
-                                <h5 class="media-heading">Ім'я Прізвище</h5>
-                                <h6>email@gmail.com</h6>
-                            </div>
-                        </div>
-                        <a href="#" class="dropdown-item text-uppercase">Переглянути профіль</a>
-                        <a href="#" class="dropdown-item text-uppercase">Обрані тренування</a>
-                        <a href="#" class="dropdown-item text-uppercase">Обрані рецепти</a>
-                        <a href="#" class="dropdown-item text-uppercase text-muted">Вийти</a>
-                    </div>
+                <li class="nav-item nav-item-toggable show-unauthorised">
+                    <a class="nav-link" href="auth.html">Увійти</a>
                 </li>
             </ul>
-        </div>
-        <div id="collapsingMobileUser" class="collapse navbar-toggleable-custom dropdown-menu-custom p-x-1 hidden-md-up"
-             role="tabpanel" aria-labelledby="collapsingMobileUser">
-            <div class="media m-t-1">
-                <div class="media-left">
-                    <img src="img/icon-user.png" height="60px" width="60px" alt="Avatar" class="img-circle">
-                </div>
-                <div class="media-body media-middle">
-                    <h5 class="media-heading">Ім'я Прізвище</h5>
-                    <h6>email@gmail.com</h6>
-                </div>
-            </div>
-            <a href="./user-profile.html" class="dropdown-item text-uppercase">Переглянути профіль</a>
-            <a href="#" class="dropdown-item text-uppercase">Обрані тренування</a>
-            <a href="#" class="dropdown-item text-uppercase">Обрані рецепти</a>
-            <a href="#" class="dropdown-item text-uppercase text-muted">Вийти</a>
         </div>
     </div>
 </nav>
@@ -94,21 +49,53 @@
 ================================================== -->
 <section class="section-intro" id="workout-list">
     <div class="container workout-content">
-    <label for="name"><b>Ім'я</b></label>
-    <input type="text" placeholder="Введіть Ім'я" name="name" required>
-
-    <label for="email"><b>Пошта</b></label>
-    <input type="text" placeholder="Введіть Пошту" name="email" required>
-
-    <label for="psw"><b>Пароль</b></label>
-    <input type="password" placeholder="Введіть Пароль" name="psw" required>
-
-    <label for="psw-repeat"><b>Пароль</b></label>
-    <input type="password" placeholder="Повторіть Пароль" name="psw-repeat" required>
-
-    <button type="submit" class="confirm_reg">Зареєструватися</button>
-</div>
+        <div class="row">
+            <div class="col-12">
+                <label for="user_name" class="required"><b>Ім'я</b></label>
+                <input type="text" placeholder="Введіть Ім'я" id="user_name" required>
+            </div>
+            <div class="col-12 col-md-7">
+                <label for="user_email" class="required"><b>Пошта</b></label>
+                <input type="text" placeholder="Введіть Пошту" id="user_email" required>
+            </div>
+            <div class="col-12 col-md-5">
+                <label for="user_birth"><b>Дата народження</b></label>
+                <input type="date" id="user_birth">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="user_weight" class="required"><b>Вага (кг)</b></label>
+                <input type="number" id="user_weight" required placeholder="60">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="user_height" class="required"><b>Ріст (см)</b></label>
+                <input type="number" id="user_height" required placeholder="170">
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="user_hips" class="required"><b>Обхват бедер (см)</b></label>
+                <input type="number" id="user_hips" required placeholder="90">
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="user_waist" class="required"><b>Обхват талії (см)</b></label>
+                <input type="number" id="user_waist" required placeholder="60">
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="user_chest" class="required"><b>Обхват грудей (см)</b></label>
+                <input type="number" id="user_chest" required placeholder="90">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="user_pass" class="required"><b>Пароль</b></label>
+                <input type="password" placeholder="Введіть Пароль" id="user_pass" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="user_pass_conf" class="required"><b>Пароль</b></label>
+                <input type="password" placeholder="Повторіть Пароль" id="user_pass_conf" required>
+            </div>
+        </div>
+        <button type="submit" class="confirm_reg" id="submit_registration">Зареєструватися</button>
+    </div>
 </section>
-</body>
 
+
+<script src="./js/reg.js" type="module"></script>
+</body>
 </html>

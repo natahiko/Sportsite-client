@@ -1,32 +1,5 @@
 import { URL } from './const.js'
 
-const categories = [
-    {
-        image: "https://i.pinimg.com/originals/7f/cc/d4/7fccd4143a51812cfbcff26451e2a113.png",
-        name: "Вегетаріанські страви",
-        id: 2
-    },
-    {
-        image: "http://pngimg.com/uploads/beef/beef_PNG14.png",
-        name: "М’ясні страви",
-        id: 3
-    },
-    {
-        image: "https://pngimg.com/uploads/lemonade/lemonade_PNG16937.png",
-        name: "Напої",
-        id: 4
-    },
-    {
-        image: "http://pngimg.com/uploads/soup/soup_PNG106.png",
-        name: "Супи",
-        id: 5
-    },
-    {
-        image: "https://pngimg.com/uploads/ice_cream/ice_cream_PNG20979.png",
-        name: "Десерти",
-        id: 6
-    }
-]
 
 function loadRecipesCategory () {
     $("#recipes-category").html("");
