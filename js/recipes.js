@@ -1,4 +1,4 @@
-import { URL } from './const.js'
+import { URL, checkForAuthorization } from './const.js'
 
 
 function loadRecipesCategory () {
@@ -119,6 +119,7 @@ function openRecipe (recipe) {
 }
 
 function loadPage () {
+    checkForAuthorization()
     let page = sessionStorage.getItem('recipe-page');
     let size = sessionStorage.getItem('recipe-size');
 

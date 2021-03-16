@@ -1,9 +1,5 @@
-import { URL } from './const.js'
+import { URL,userAuth, validateEmail } from './const.js'
 
-function validateEmail (email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
 
 function validateAndSend () {
     const name = $("#user_name").val()
@@ -87,7 +83,7 @@ function validateAndSend () {
             "chestCircumference": chest,
             "waistCircumference": waist,
             "hipsCircumference": hips,
-            "Birthday": birthdate
+            "birthday": birthdate
         }),
         success: (data) => {
             $("#loader").hide()
@@ -103,6 +99,7 @@ function loadPage () {
         validateAndSend()
     })
     $("#loader").hide()
+    sessionStorage.removeItem(userAuth)
 }
 
 loadPage();

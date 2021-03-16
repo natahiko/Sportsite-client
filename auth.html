@@ -51,21 +51,23 @@
 <section class="section-intro" id="workout-list">
     <div class="container sign-content">
         <h1 class="text-center">Вхід</h1>
-        <label for="email"><b>Пошта</b></label>
-        <input type="text" placeholder="Введіть Пошту" name="email" required>
+        <label for="user_email"><b>Пошта</b></label>
+        <input type="text" placeholder="Введіть Пошту" id="user_email" required>
 
-        <label for="psw"><b>Пароль</b></label>
-        <input type="password" placeholder="Введіть Пароль" name="psw" required>
-        <br>
-        <span class="psw"><a href="#">Забули пароль?</a></span>
+        <label for="user_pass"><b>Пароль</b></label>
+        <input type="password" placeholder="Введіть Пароль" id="user_pass" required>
         <br>
         <br>
-        <button type="submit" class="confirm_auth">Увійти</button>
+        <button type="submit" class="confirm_auth" id="confirm_auth">Увійти</button>
     </div>
 
 </section>
 
+<div id="loader">
+    <img alt="loading..." src="./img/LOADER.gif" />
+</div>
 
+<script src="./js/auth.js" type="module"></script>
 </body>
 
 </html>

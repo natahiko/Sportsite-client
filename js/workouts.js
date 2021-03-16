@@ -1,4 +1,4 @@
-import { URL } from './const.js'
+import { URL, checkForAuthorization } from './const.js'
 
 function loadWorkouts () {
     $("#workout-list").show()
@@ -58,6 +58,7 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
 }
 
 function loadPage () {
+    checkForAuthorization()
     let page = sessionStorage.getItem('workout-page');
     let size = sessionStorage.getItem('workout-size');
 

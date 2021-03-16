@@ -1,4 +1,4 @@
-import { URL, ImageUploadURL } from './const.js'
+import { URL, ImageUploadURL, checkForAuthorization, userAuth } from './const.js'
 
 function loadBlogs () {
     $("#add-article").hide();
@@ -72,6 +72,11 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
 let newBlogImage = null
 
 function loadPage () {
+    checkForAuthorization()
+
+    if(sessionStorage.getItem(userAuth)===null)
+        $("#add-blog").hide();
+
     $("#add-article").hide();
 
     let page = sessionStorage.getItem('blog-page');

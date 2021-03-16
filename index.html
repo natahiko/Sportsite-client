@@ -36,22 +36,22 @@
         <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel"
              aria-labelledby="collapsingNavbar">
             <ul class="nav navbar-nav pull-xs-right">
-                <li class="nav-item nav-item-toggable show-unauthorised">
-                    <a class="nav-link" href="#">Блог</a>
-                </li>
                 <li class="nav-item nav-item-toggable">
+                    <a class="nav-link" href="./blog.html">Блог</a>
+                </li>
+                <li class="nav-item nav-item-toggable show-authorised">
                     <a class="nav-link" href="./recipes.html">Рецепти</a>
                 </li>
-                <li class="nav-item nav-item-toggable">
+                <li class="nav-item nav-item-toggable show-authorised">
                     <a class="nav-link" href="./workouts.html">Тренування</a>
                 </li>
-                <li class="nav-item nav-item-toggable">
+                <li class="nav-item nav-item-toggable show-authorised">
                     <a class="nav-link" href="user-profile.html">Профіль</a>
                 </li>
-                <li class="nav-item nav-item-toggable show-unauthorised">
+                <li class="nav-item nav-item-toggable" id="login_button">
                     <a class="nav-link" href="auth.html">Увійти</a>
                 </li>
-                <li class="nav-item nav-item-toggable">
+                <li class="nav-item nav-item-toggable show-authorised" id="logout_button">
                     <a class="nav-link">Вийти</a>
                 </li>
             </ul>
@@ -146,5 +146,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/default.min.js"></script>
+<script type="module" src="./js/index.js"></script>
 </body>
 </html>
