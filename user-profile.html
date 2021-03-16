@@ -63,107 +63,73 @@
 ================================================== -->
 <section class="section-intro" id="workout-list">
     <div class="container workout-content">
+        <div class="row">
+            <div class="col-4 offset-8">
+                <button type="button" id="edit_button">Редагувати</button>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="user_name"><b>Ім'я</b></label>
+                <input type="text" placeholder="" id="user_name" required>
 
-        <img src="./img/icons/user 2.png" class="avatar">
+                <label for="user_email"><b>Пошта</b></label>
+                <input type="text" placeholder="" id="user_email" required>
 
-        <p class="avatar_text"><a href="#"> Змінити фото</a></p>
-        <br>
-        <p class="avatar_text2"><a href="#"> Змінити пароль</a></p>
-
-
-        <br clear="all">
-        <br clear="all">
-
-        <!-- Main Part
-================================================== -->
-        <label for="name"><b>Ім'я</b></label>
-        <input type="text" placeholder="" name="name" required>
-
-        <label for="email"><b>Пошта</b></label>
-        <input type="text" placeholder="" name="email" required>
-
-        <label for="birth_date"><b>Дата народження</b></label>
-        <input type="date" name="calendar" value="">
-        <br>
-
-        <label for="purpose"><b>Мета</b></label>
-        <br>
-        <select name="purpose">
-            <option selected value="s1">Схуднення</option>
-            <option selected value="s1">Набір маси</option>
-            <option selected value="s1">Схуднення</option>
-            <option selected value="s1">Схуднення</option>
-        </select>
-        <br>
-
-        <label for="style"><b>Стиль життя</b></label>
-        <br>
-        <select name="style">
-            <option selected value="s1">Малоактивний</option>
-            <option selected value="s1">Активний</option>
-            <option selected value="s1">Сидячий</option>
-        </select>
-        <br>
-
-        <label for="parameter"><b>Ваші параметри</b></label>
-        <br>
-
-
-        <div class="param">
-
-            <img src="./img/icons/icon-chest 1.png" class="picture">
-            <label for="chest" class="txt"><b>Обхват грудей</b></label>
-
-            <input type="number" class="field" size="3" max="250" required>
-
-
-            <br clear="all">
-            <br clear="all">
-
-            <img src="./img/icons/icon-navel2 1.png" class="picture">
-            <label for="chest" class="txt"><b>Обхват на 2 см нижче пупка</b></label>
-
-            <input type="number" class="field" size="3" max="250" required>
-
-
-            <br clear="all">
-            <br clear="all">
-
-            <img src="./img/icons/icon-waist 1.png" class="picture">
-            <label for="chest" class="txt"><b>Обхват талії</b></label>
-            <input type="number" class="field" size="3" max="250" required>
-
-            <br clear="all">
-            <br clear="all">
-
-            <img src="./img/icons/icon-hip 1.png" class="picture">
-            <label for="chest" class="txt"><b>Обхват стегон</b></label>
-            <input type="number" class="field" size="3" max="250" required>
-
-            <br clear="all">
-            <br clear="all">
-
-            <img src="./img/icons/icon-weight 1.png" class="picture">
-            <label for="chest" class="txt"><b>Вага</b></label>
-            <input type="number" class="field" size="3" max="250" required>
-
-            <br clear="all">
-            <br clear="all">
-
-            <img src="./img/icons/icon-height 1.png" class="picture">
-            <label for="chest" class="txt"><b>Зріст</b></label>
-            <input type="number" class="field" size="3" max="250" required>
-
-            <br clear="all">
-            <br clear="all">
-
-            <button type="submit" class="confirm_auth">Зберегти</button>
+                <label for="user_birth"><b>Дата народження</b></label>
+                <input type="date" name="calendar" value="" id="user_birth">
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row">
+                    <div class="col-2" style="align-self: center;">
+                        <img src="./img/height.png" class="profile-body-img">
+                    </div>
+                    <div class="col-10">
+                        <label for="user_height" class="required"><b>Ріст (см)</b></label>
+                        <input type="number" id="user_height" required placeholder="170">
+                    </div>
+                    <div class="col-2" style="align-self: center;">
+                        <img src="./img/weight.png" class="profile-body-img">
+                    </div>
+                    <div class="col-10">
+                        <label for="user_weight" class="required"><b>Вага (кг)</b></label>
+                        <input type="number" id="user_weight" required placeholder="60">
+                    </div>
+                    <div class="col-2" style="align-self: center;">
+                        <img src="./img/chest.png" class="profile-body-img">
+                    </div>
+                    <div class="col-10">
+                        <label for="user_chest" class="required"><b>Обхват грудей (см)</b></label>
+                        <input type="number" id="user_chest" required placeholder="90">
+                    </div>
+                    <div class="col-2" style="align-self: center;">
+                        <img src="./img/waist.png" class="profile-body-img">
+                    </div>
+                    <div class="col-10">
+                        <label for="user_waist" class="required"><b>Обхват талії (см)</b></label>
+                        <input type="number" id="user_waist" required placeholder="60">
+                    </div>
+                    <div class="col-2" style="align-self: center;">
+                        <img src="./img/hips.png" class="profile-body-img">
+                    </div>
+                    <div class="col-10">
+                        <label for="user_hips" class="required"><b>Обхват бедер (см)</b></label>
+                        <input type="number" id="user_hips" required placeholder="90">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-3 offset-6">
+                <button type="button" id="save_button">Зберегти</button>
+            </div>
+            <div class="col-3">
+                <button type="button" id="delete_button">Видалити профіль</button>
+            </div>
         </div>
-
-
     </div>
 
 </section>
+<div id="loader">
+    <img alt="loading..." src="./img/LOADER.gif" />
+</div>
 
 <script type="module" src="./js/user-profile.js"></script>
 </body>

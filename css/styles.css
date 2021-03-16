@@ -403,7 +403,7 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
     width: 100%;
     height: 44px;
     padding: 10px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 5px 0;
     display: inline-block;
     border: none;
     background: #f9f9f9;
@@ -461,9 +461,6 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
 }
 
 /*--- --- Profile --- --- --- Profile --- --- Profile --- --- Profile --- --- Profile --- --- Profile --- */
-select {
-    width: 15%;
-}
 
 .picture {
     width: 100px;
@@ -479,42 +476,10 @@ select {
     align-items: center;
 }
 
-.field {
-    float: right;
-    -moz-appearance: textfield;
-    width: 40em;
-    align-items: center;
+.profile-body-img{
+    width: 100%;
 }
-
-.param {
-    float: left;
-    align-items: center;
-}
-
-.field::-webkit-inner-spin-button {
-    display: none;
-}
-
-.avatar {
-    float: left;
-    padding: 21px 150px 0 203px;
-    width: 60%;
-    height: 60%;
-}
-
-.avatar_text {
-    padding: 116px 100px 0 100px;
-    font-family: Gothic A1;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 44px;
-}
-
-.avatar_text2 {
-    font-family: Gothic A1;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 44px;
+#edit_button, #save_button, #delete_button{
+    width: 100%;
+    background: #A3B4CD;
 }

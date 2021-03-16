@@ -252,7 +252,10 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 }
 
 button[disabled], html input[disabled] {
-    cursor: default
+    cursor: default;
+    background: transparent;
+    color: black;
+    font-weight: 600;
 }
 
 button::-moz-focus-inner, input::-moz-focus-inner {
