@@ -1,4 +1,4 @@
-import { URL,userAuth, validateEmail } from './const.js'
+import { URL, userAuth, validateEmail } from './const.js'
 
 
 function validateAndSend () {
@@ -99,7 +99,7 @@ function loadPage () {
         validateAndSend()
     })
     $("#loader").hide()
-    sessionStorage.removeItem(userAuth)
+    localStorage.removeItem(userAuth)
 }
 
 loadPage();

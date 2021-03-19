@@ -4,8 +4,8 @@ function loadBlogs () {
     $("#add-article").hide();
     $("#articles").html("");
 
-    const page = sessionStorage.getItem('blog-page');
-    const size = sessionStorage.getItem('blog-size');
+    const page = localStorage.getItem('blog-page');
+    const size = localStorage.getItem('blog-size');
     $("#article").hide();
 
     $.get(URL + "/article?page=" + page + "&size=" + size, function (data, err) {
@@ -60,11 +60,11 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
         "</div></div></div>")
 
     $("#pagination-next").on('click', function () {
-        sessionStorage.setItem('blog-page', +curPage + 1);
+        loca.setItem('blog-page', +curPage + 1);
         loadBlogs();
     });
     $("#pagination-prev").on('click', function () {
-        sessionStorage.setItem('blog-page', curPage - 1);
+        localStorage.setItem('blog-page', curPage - 1);
         loadBlogs();
     });
 }
@@ -74,25 +74,25 @@ let newBlogImage = null
 function loadPage () {
     checkForAuthorization()
 
-    if(sessionStorage.getItem(userAuth)===null)
+    if (localStorage.getItem(userAuth) === null)
         $("#add-blog").hide();
 
     $("#add-article").hide();
 
-    let page = sessionStorage.getItem('blog-page');
-    let size = sessionStorage.getItem('blog-size');
+    let page = localStorage.getItem('blog-page');
+    let size = localStorage.getItem('blog-size');
 
     if (page === null) {
-        sessionStorage.setItem('blog-page', 0);
+        localStorage.setItem('blog-page', 0);
         page = 0;
     }
     if (size === null) {
-        sessionStorage.setItem('blog-size', 5);
+        localStorage.setItem('blog-size', 5);
         size = 5;
     }
     $("#blog-size-selector").val(size)
     $("#blog-size-selector").on('change', function (value) {
-        sessionStorage.setItem('blog-size', this.value);
+        localStorage.setItem('blog-size', this.value);
         loadBlogs();
     })
     $("#add-blog").on('click', function () {

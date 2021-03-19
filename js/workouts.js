@@ -4,8 +4,8 @@ function loadWorkouts () {
     $("#workout-list").show()
     $("#workout").hide()
 
-    const page = sessionStorage.getItem('workout-page');
-    const size = sessionStorage.getItem('workout-size');
+    const page = localStorage.getItem('workout-page');
+    const size = localStorage.getItem('workout-size');
 
     $("#workout-list").html("");
 
@@ -48,26 +48,26 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
 
 
     $("#pagination-next a").on('click', function () {
-        sessionStorage.setItem('workout-page', +curPage + 1);
+        localStorage.setItem('workout-page', +curPage + 1);
         loadWorkouts();
     });
     $("#pagination-prev a").on('click', function () {
-        sessionStorage.setItem('workout-page', curPage - 1);
+        localStorage.setItem('workout-page', curPage - 1);
         loadWorkouts();
     });
 }
 
 function loadPage () {
     checkForAuthorization()
-    let page = sessionStorage.getItem('workout-page');
-    let size = sessionStorage.getItem('workout-size');
+    let page = localStorage.getItem('workout-page');
+    let size = localStorage.getItem('workout-size');
 
     if (page === null) {
-        sessionStorage.setItem('workout-page', 0);
+        localStorage.setItem('workout-page', 0);
         page = 0;
     }
     if (size === null) {
-        sessionStorage.setItem('workout-size', 5);
+        localStorage.setItem('workout-size', 5);
         size = 5;
     }
     $("#search-button").on('click', () => searchWorkout());
@@ -77,7 +77,7 @@ function loadPage () {
 
     $("#workout-size-selector").val(size)
     $("#workout-size-selector").on('change', function (value) {
-        sessionStorage.setItem('workout-size', this.value);
+        localStorage.setItem('workout-size', this.value);
         loadWorkouts();
     })
     $("#workout-back-button").on('click', function (value) {

@@ -40,11 +40,11 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
 
 
     $("#pagination-next a").on('click', function () {
-        sessionStorage.setItem('recipe-page', +curPage + 1);
+        localStorage.setItem('recipe-page', +curPage + 1);
         openAllRecipiesCategory();
     });
     $("#pagination-prev a").on('click', function () {
-        sessionStorage.setItem('recipe-page', curPage - 1);
+        localStorage.setItem('recipe-page', curPage - 1);
         openAllRecipiesCategory();
     });
 }
@@ -60,12 +60,12 @@ function openAllRecipiesCategory (id) {
     })
 
     if (id != undefined)
-        sessionStorage.setItem('recipe-category-id', id);
+        localStorage.setItem('recipe-category-id', id);
     else
-        id = sessionStorage.getItem('recipe-category-id');
+        id = localStorage.getItem('recipe-category-id');
 
-    const page = sessionStorage.getItem('recipe-page');
-    const size = sessionStorage.getItem('recipe-size');
+    const page = localStorage.getItem('recipe-page');
+    const size = localStorage.getItem('recipe-size');
 
     $("#recipes-list").html("");
 
@@ -120,15 +120,15 @@ function openRecipe (recipe) {
 
 function loadPage () {
     checkForAuthorization()
-    let page = sessionStorage.getItem('recipe-page');
-    let size = sessionStorage.getItem('recipe-size');
+    let page = localStorage.getItem('recipe-page');
+    let size = localStorage.getItem('recipe-size');
 
     if (page === null) {
-        sessionStorage.setItem('recipe-page', 0);
+        localStorage.setItem('recipe-page', 0);
         page = 0;
     }
     if (size === null) {
-        sessionStorage.setItem('recipe-size', 1);
+        localStorage.setItem('recipe-size', 1);
         size = 1;
     }
 
@@ -141,7 +141,7 @@ function loadPage () {
 
     $("#recipe-size-selector").val(size)
     $("#recipe-size-selector").on('change', function (value) {
-        sessionStorage.setItem('recipe-size', this.value);
+        localStorage.setItem('recipe-size', this.value);
         openAllRecipiesCategory();
     })
     loadRecipesCategory();

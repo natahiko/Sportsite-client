@@ -1,10 +1,10 @@
-import { URL, userAuth, validateEmail } from "./const.js";
+import { URL, userAuth, validateEmail, userIdLoc } from "./const.js";
 
 function loadPage () {
     $("#confirm_auth").on('click', function () {
         validateAndSend()
     })
-    sessionStorage.removeItem(userAuth)
+    localStorage.removeItem(userAuth)
     $("#loader").hide()
 }
 
@@ -32,8 +32,11 @@ function validateAndSend () {
             "password": password,
         }),
         success: (data) => {
-            console.log(data)
-            sessionStorage.setItem(userAuth, data)
+            data = JSON.parse(data)
+            localStorage.setItem(userAuth, data['token'])
+            localStorage.setItem(userIdLoc, data['userId'])
+            // console.log(localStorage.getItem(userAuth))
+            // console.log(localStorage.getItem(userIdLoc))
             window.location = './index.html'
         },
         error: (data) => {
