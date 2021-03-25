@@ -10,7 +10,7 @@ function loadRecipesCategory () {
         "    <img class='recipe-category-image' alt='' src='img/calculator-512_512.png'>\n" +
         "        <h4 class='recipe-category-name'>Калькулятор</h4>\n" +
         "</div></div>")
-    $("#recipe-calculator").on('click', () => location.href = './calculator.html')
+    $("#recipe-calculator").on('click', () => location.href = '../../calculator.html')
 
     $.get(URL + "/recipe/category", function (data, err) {
 
@@ -138,7 +138,7 @@ function loadPage () {
     $("#recipes-block").hide()
 
     $("#search-button").on('click', () => searchRecipes());
-
+    //$("#search-button").on('click', () => sort());
     $("#recipe-size-selector").val(size)
     $("#recipe-size-selector").on('change', function (value) {
         localStorage.setItem('recipe-size', this.value);
@@ -163,23 +163,55 @@ function searchRecipes () {
 
     $("#recipes-list").html("<h1>Результати пошуку .... " + searchValue + "</h1>")
 
-    // $.get(URL + "/recipe?category=" + id + "&page=" + page + "&size=" + size, function (data, err) {
-    //
+   //$.get(URL + "/recipe?category=" + id + "&page=" + page + "&size=" + size, function (data, err) {
+    $.get(URL + "/recipe/query?query=суп", function (data, err) {
     $("#total-recipe-amount").html('10'); //data.totalElements
-    //
-    //     data.content.forEach(recipe => {
-    //         $("#recipes-list").append("<div class='row' id='recipe-id" + recipe.id + "'>" +
-    //             "    <div class='col-4 p-0'>" +
-    //             "    <img class='preview-recipe-img' alt='' src='" + recipe.image + "' />" +
-    //             "    </div>" +
-    //             "    <div class='col-8 p-3'>" +
-    //             "       <h3 class='text-truncate'>" + recipe.name + "</h3>" +
-    //             "       <p>" + recipe.description.substring(0, 50) + "...</p>" +
-    //             "</div></div>")
-    //         $("#recipe-id" + recipe.id).on('click', () => openRecipe(recipe))
-    //     })
-    //     addPaginationPart(page, data.totalPages, data.first, data.last);
-    // })
+
+        data.content.forEach(recipe => {
+         $("#recipes-list").append("<div class='row' id='recipe-id" + recipe.id + "'>" +
+               "    <div class='col-4 p-0'>" +
+            "    <img class='preview-recipe-img' alt='' src='" + recipe.image + "' />" +
+             "    </div>" +
+             "    <div class='col-8 p-3'>" +
+             "       <h3 class='text-truncate'>" + recipe.name + "</h3>" +
+             "       <p>" + recipe.description.substring(0, 50) + "...</p>" +
+            "</div></div>")
+          $("#recipe-id" + recipe.id).on('click', () => openRecipe(recipe))
+    })
+      addPaginationPart(page, data.totalPages, data.first, data.last);
+  })
+}
+
+function sort(){
+    let queryString = $("#recipes-search").val();
+    console.log(queryString)
+    let url = "https://sportsite-api.herokuapp.com/recipe/query?query=" + queryString + "&filterby=calories&filtervalue=100&cmpr=gt&sortby=name&descending=0"
+
+    $.ajax({
+        url: url,
+        type: 'GET',
+        contentType: 'application/json',
+        success: function (result) {
+            console.log(result)
+            result.forEach(recipe => {
+            $("#recipes-list").append("<div class='row' id='recipe-id" + recipe.id + "'>" +
+            "    <div class='col-4 p-0'>" +
+            "    <img class='preview-recipe-img' alt='' src='" + recipe.image + "' />" +
+            "    </div>" +
+            "    <div class='col-8 p-3'>" +
+                        "       <h3 class='text-truncate'>" + recipe.name + "</h3>" +
+                        "       <p>" + recipe.description.substring(0, 50) + "...</p>" +
+                         "</div></div>")
+                   $("#recipe-id" + recipe.id).on('click', () => openRecipe(recipe))
+                 })
+            $("#recipes-list").show()
+            addPaginationPart(page, data.totalPages, data.first, data.last);
+        },
+
+        error: function (error) {
+
+        }
+    });
 }
 
 loadPage();
