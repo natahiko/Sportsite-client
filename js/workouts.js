@@ -2,6 +2,7 @@ import { URL, checkForAuthorization } from './const.js'
 
 function loadWorkouts () {
     $("#workout-list").show()
+    $('#pagination-row').show()
     $("#workout").hide()
 
     const page = localStorage.getItem('workout-page');
@@ -82,6 +83,7 @@ function loadPage () {
     })
     $("#workout-back-button").on('click', function (value) {
         $("#workout-list").show()
+        $('#pagination-row').show()
         $("#workout").hide()
     })
     loadWorkouts();
@@ -89,6 +91,7 @@ function loadPage () {
 
 function searchWorkout () {
     $("#workout-list").show()
+    $('#pagination-row').show()
     $("#workout").hide()
     const searchValue = $("#workout-search").val();
     const sort_option = $("#workout-sort_by-selector").val();
@@ -142,6 +145,7 @@ function openWorkout (data) {
     $("#workout-image").attr('src', workout.image);
 
     $("#workout-list").hide()
+    $('#pagination-row').hide()
     $("#workout").show()
 }
 

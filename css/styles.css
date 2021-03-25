@@ -245,6 +245,7 @@
     object-fit: contain;
     display: block;
     margin: auto;
+    max-width: 100%;
 }
 
 .recipe-category-name {
@@ -338,6 +339,40 @@
     margin-right: 5px;
 }
 
+.star-icon-small::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-size: contain;
+    background-image: url("../img/icons/star.png");
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.detail-workout-set .desc {
+    font-size: 14px;
+    line-height: normal;
+}
+
+.rest {
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+    color: blueviolet;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.heart-icon::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-image: url("../img/icons/heart.png");
+    display: inline-block;
+    margin-right: 5px;
+}
+
 #workout-image {
     width: 100%;
 }
@@ -353,13 +388,20 @@
     width: 100%;
     display: block;
     margin: auto;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #workout-search {
     font-size: 16px;
     margin: 0;
 
+}
+
+.workout-card .desc {
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /*--- --- Sign --- --- --- Sign --- --- Sign --- --- Sign --- --- Sign --- --- Sign --- */
@@ -509,4 +551,8 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
 
 #user-profile input[disabled] {
     padding: 0;
+}
+
+#liked-workout-set .workout-card {
+    margin-left: -15px;
 }
