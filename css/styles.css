@@ -296,6 +296,9 @@
     background-size: cover;
     height: 100%;
 }
+#workout-exercises .detail-workout-set img{
+    object-fit: contain;
+}
 
 .workout-content {
     background: rgba(233, 233, 233, 0.87);
