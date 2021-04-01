@@ -13,10 +13,150 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1>Calculator - Sportsite</h1>
 
-<div id="recipes-calculator-block" style="background: white;" class="row">
-    <h3>Калькулятор калорій</h3>
+<!-- Navigation
+================================================== -->
+
+<nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="./">
+            <img class="icon-logo" src="img/icon.png" alt="" />
+            <span class="sr-only">Sportsite</span>
+        </a>
+        <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar"
+           aria-expanded="false" aria-controls="collapsingNavbar">
+            &#9776;
+        </a>
+        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-xs-right" data-toggle="collapse"
+           href="#collapsingMobileUser" aria-expanded="false" aria-controls="collapsingMobileUser">
+            <span class="icon-user"></span>
+        </a>
+        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel"
+             aria-labelledby="collapsingNavbar">
+            <ul class="nav navbar-nav pull-xs-right">
+                <li class="nav-item nav-item-toggable show-authorised">
+                    <a class="nav-link" href="#">Блог</a>
+                </li>
+                <li class="nav-item nav-item-toggable show-authorised">
+                    <a class="nav-link" href="./recipes.html">Рецепти</a>
+                </li>
+                <li class="nav-item nav-item-toggable show-authorised">
+                    <a class="nav-link" href="./workouts.html">Вправи</a>
+                </li>
+                <li class="nav-item nav-item-toggable show-authorised">
+                    <a class="nav-link" href="./workoutsSets.html">Тренування</a>
+                </li>
+                <li class="nav-item nav-item-toggable show-authorised">
+                    <a class="nav-link" href="user-profile.html">Профіль</a>
+                </li>
+                <li class="nav-item nav-item-toggable" id="login_button">
+                    <a class="nav-link" href="auth.html">Увійти</a>
+                </li>
+                <li class="nav-item nav-item-toggable show-authorised" id="logout_button">
+                    <a class="nav-link">Вийти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="section-intro" id="calculator" role="banner">
+    <div class="h-100" style="overflow: auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-10"><h1>Калькулятор калорій</h1></div>
+                <div class="col-2" style="text-align: end;"><img alt="back" src="./img/icons/clear.png"
+                                                                 id="calculator-clear-button"></div>
+                <div class="col-12">
+                    1. Оберіть зі списку продукти для яких хочете розрахувати калорійність<br />
+                    2. Вкажіть необіхну кількість для кожного продукту в <b>грамах!</b><br />
+                    3. Натисніть <i>"Розрахувати"</i> та отримайте повну інформацію про енергетичну цінність обраних
+                    інградієнтів
+                </div>
+                <hr style="width: 100%" />
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6"><b>Назва</b></div>
+                        <div class="col-2"><b>грам</b></div>
+                        <div class="col-1">
+                            <div class="tooltip">К
+                                <span class="tooltiptext"><b>Калорійність</b></span>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">Б
+                                <span class="tooltiptext"><b>Білки</b></span>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">Ж
+                                <span class="tooltiptext"><b>Жири</b></span>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">В
+                                <span class="tooltiptext"><b>Вуглеводи</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="ingredients"></div>
+                    <div class="row">
+                        <div class="col-6">
+                            <select id="ingridient-selector">
+                                <option disabled value="" selected>-</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <input id="added-amount" type="number" placeholder="100" min="10" step="100" max="10000">
+                        </div>
+                        <div class="col-4">
+                            <button id="add-ingredient-button">+</button>
+                        </div>
+                    </div>
+                    <div class="row" id="total-block">
+                        <div class="col-6 vertical-center"><h3 class="m-0">Загалом:</h3></div>
+                        <div class="col-2 vertical-center">
+                            <b style="font-size: 22px"><span id="total-amount"></span> гр.</b>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">К
+                                <span class="tooltiptext"><b>Калорійність</b></span>
+                            </div>
+                            <br />
+                            <span id="total-calories"></span>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">Б
+                                <span class="tooltiptext"><b>Білки</b></span>
+                            </div>
+                            <br />
+                            <span id="total-proteins"></span>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">Ж
+                                <span class="tooltiptext"><b>Жири</b></span>
+                            </div>
+                            <br />
+                            <span id="total-fats"></span>
+                        </div>
+                        <div class="col-1">
+                            <div class="tooltip">В
+                                <span class="tooltiptext"><b>Вуглеводи</b></span>
+                            </div>
+                            <br />
+                            <span id="total-carbohydrates"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="loader">
+    <img alt="loading..." src="./img/LOADER.gif" />
 </div>
+
+<script src="js/calculator.js" type="module"></script>
 </body>
 </html>

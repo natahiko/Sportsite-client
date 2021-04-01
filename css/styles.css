@@ -16,6 +16,21 @@
     height: 45px;
 }
 
+.vertical-center {
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-center > * {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+select {
+    background: #f9f9f9;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: lightgrey;
     opacity: 1; /* Firefox */
@@ -35,6 +50,53 @@
     height: 20px;
     background-size: contain;
     background-image: url("../img/icons/down-arrow.png");
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
 #loader {
@@ -296,7 +358,8 @@
     background-size: cover;
     height: 100%;
 }
-#workout-exercises .detail-workout-set img{
+
+#workout-exercises .detail-workout-set img {
     object-fit: contain;
 }
 
@@ -558,4 +621,57 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
 
 #liked-workout-set .workout-card {
     margin-left: -15px;
+}
+
+/*--- CALCULATOR --- CALCULATOR --- CALCULATOR --- CALCULATOR --- CALCULATOR --- CALCULATOR --- CALCULATOR ---*/
+
+#calculator {
+    background-image: url("../img/calc-bg.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+#calculator .container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#calculator .container > .row {
+    border-radius: 10px;
+    background: rgba(233, 233, 233, 0.87);
+    padding: 20px;
+}
+
+#calculator .container .row {
+    margin-bottom: 10px;
+}
+
+#add-ingredient-button {
+    width: 100%;
+    background: #A3B4CD;
+    font-size: 22px;
+}
+
+#ingridient-selector {
+    height: 100%;
+    width: 100%;
+}
+
+#calculator-clear-button {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 7px;
+    margin: 5px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#calculator-clear-button:hover {
+    transform: scale(1.05);
+    transition: .5s;
+}
+
+#calculator #total-amount {
+    margin-right: 10px;
 }
