@@ -675,3 +675,39 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
 #calculator #total-amount {
     margin-right: 10px;
 }
+/*MAIN PAge*/
+.blog-part{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.blog-part p{
+    background: #e2e2e2;
+    border-radius: 10px;
+    padding: 15px;
+}
+.recipe-part{
+    background: #e2e2e2;
+    width: 100%;
+}
+.recipe-part p{
+    background: white;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 15px;
+}
+.main-img-1{
+    width: 90%;
+}
+.main-img-2{
+    width: 60%;
+    margin-top: -60px;
+    margin-left: -35%;
+}
+.main-img-3 {
+    width: 70%;
+    object-fit: contain;
+    margin-right: -30px;
+    padding-top: 20px;
+    max-height: 100%;
+    padding-bottom: 20px;
+}
