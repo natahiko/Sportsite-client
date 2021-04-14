@@ -32,7 +32,7 @@ function loadWorkouts () {
                 openWorkout(JSON.stringify(workout))
             })
         })
-        addPaginationPart(page, data.totalPages, data.first, data.last)
+        // addPaginationPart(page, data.totalPages, data.first, data.last)
     })
 }
 
@@ -79,14 +79,14 @@ function loadPage () {
     $("#workout-size-selector").val(size)
     $("#workout-size-selector").on('change', function (value) {
         localStorage.setItem('workout-size', this.value);
-        loadWorkouts();
+        searchWorkout();
     })
     $("#workout-back-button").on('click', function (value) {
         $("#workout-list").show()
         $('#pagination-row').show()
         $("#workout").hide()
     })
-    loadWorkouts();
+    searchWorkout();
 }
 
 function searchWorkout () {
@@ -97,9 +97,9 @@ function searchWorkout () {
     const sort_option = $("#workout-sort_by-selector").val();
     const complexity = $("#workout-filter_by-selector").val();
 
-    if (searchValue === "" && sort_option === 'null' && complexity === 'null') {
-        return loadWorkouts();
-    }
+    // if (searchValue === "" && sort_option === 'null' && complexity === 'null') {
+    //     return loadWorkouts();
+    // }
 
     const [sort, descending] = sort_option.split("_")
     const sort_by = sort_option === 'null' ? "" : `sort_by=${ sort }&descending=${ descending }`
@@ -111,7 +111,7 @@ function searchWorkout () {
 
         $("#total-workout-amount").html(data.length);
         if (data.length < 1)
-            $("#workout-list").append("<h1>Не знайдено тренувань, що відповідають запиту</h1>");
+            $("#workout-list").append("<h1 style='text-align: center'>Не знайдено тренувань, що відповідають запиту</h1>");
         data.forEach(workout => {
             let stars = ""
             for (let i = 0; i < workout.complexity; i++) {
@@ -127,7 +127,7 @@ function searchWorkout () {
                 "src='" + workout.image + "'>" +
                 "</div></div>")
         })
-        addPaginationPart(0, 1, true, true)
+        // addPaginationPart(0, 1, true, true)
     })
 }
 
@@ -145,9 +145,8 @@ function openWorkout (data) {
     $("#workout-image").attr('src', workout.image);
 
     $("#workout-list").hide()
-    $('#pagination-row').hide()
+    // $('#pagination-row').hide()
     $("#workout").show()
 }
-
 
 loadPage();

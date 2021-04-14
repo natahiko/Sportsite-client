@@ -32,7 +32,7 @@ function searchWorkout () {
 
         $("#total-workout-amount").html(data.length);
         if (data.length < 1)
-            $("#workout-list").append("<h1>Не знайдено тренувань, що відповідають запиту</h1>");
+            $("#workout-list").append("<h1 style='text-align: center'>Не знайдено тренувань, що відповідають запиту</h1>");
         data.forEach(workout => {
             let stars = ""
             for (let i = 0; i < workout.complexity; i++) {
@@ -41,7 +41,7 @@ function searchWorkout () {
 
             $("#workout-list").append("<div class='col-12 col-md-6'>" +
                 "<div class='workout-card row' id='workout-" + workout.id + "'>" +
-                "<div class='col-5 p-0'><img class='workout-card-image' alt='' src='" + workout.image + "'></div>" +
+                "<div class='col-5 p-0'><img class='workout-card-image-2' alt='' src='" + workout.image + "'></div>" +
                 "<div class='col-7'><h5 class='workout-card-title'>" + workout.name + "</h5>" +
                 "<div class='workout-complexity text-center'>" + stars + "</div>" +
                 "<p class='desc'>" + workout.description + "</p>" +
@@ -93,8 +93,8 @@ function openWorkout (workoutSetId) {
                     }
                     $("#workout-exercises").append(
                         "<div class='row detail-workout-set'>" +
-                        "<img style='max-height: 150px' class='col-6' src='" + exercise.image + "'/>" +
-                        "<div class=col-6><h5>" + exercise.name + "</h5><p class='desc'>" + exercise.description + "</p>" +
+                        "<img style='max-height: 150px' class='col-5' src='" + exercise.image + "'/>" +
+                        "<div class='col-7 with-bg'><h5>" + exercise.name + "</h5><p class='desc'>" + exercise.description + "</p>" +
                         "<div><b>" + exercise.amount + " " + exercise.exerciseMeasureType + "</b></div>" +
                         "</div></div>" +
                         "<div class='rest'>Відпочиньте " + exercise.restTime + " секунд</div>"

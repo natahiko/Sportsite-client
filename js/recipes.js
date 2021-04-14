@@ -28,6 +28,7 @@ function loadRecipesCategory () {
 }
 
 function addPaginationPart (curPage, totalPages, isFirst, isLast) {
+    $(".pagination").show()
     if (!isFirst)
         $("#pagination-prev").html("<a><< " + curPage + "</a>")
     else
@@ -128,8 +129,8 @@ function loadPage () {
         page = 0;
     }
     if (size === null) {
-        localStorage.setItem('recipe-size', 1);
-        size = 1;
+        localStorage.setItem('recipe-size', 5);
+        size = 5;
     }
 
 
@@ -148,9 +149,8 @@ function loadPage () {
 }
 
 function searchRecipes () {
+    $(".pagination").hide()
     const searchValue = $("#recipes-search").val();
-    // TODO get data from server
-    $("#workout-list").html("<h1>Результати пошуку.....</h1>")
 
     $("#recipes-category-block").hide()
     $("#recipes-list-block").show(200)
@@ -161,25 +161,27 @@ function searchRecipes () {
         $("#recipes-category-block").show(500)
     })
 
-    $("#recipes-list").html("<h1>Результати пошуку .... " + searchValue + "</h1>")
+    $.get(URL + "/recipe/query?query=" + searchValue, function (data, err) {
 
-    // $.get(URL + "/recipe?category=" + id + "&page=" + page + "&size=" + size, function (data, err) {
-    //
-    $("#total-recipe-amount").html('10'); //data.totalElements
-    //
-    //     data.content.forEach(recipe => {
-    //         $("#recipes-list").append("<div class='row' id='recipe-id" + recipe.id + "'>" +
-    //             "    <div class='col-4 p-0'>" +
-    //             "    <img class='preview-recipe-img' alt='' src='" + recipe.image + "' />" +
-    //             "    </div>" +
-    //             "    <div class='col-8 p-3'>" +
-    //             "       <h3 class='text-truncate'>" + recipe.name + "</h3>" +
-    //             "       <p>" + recipe.description.substring(0, 50) + "...</p>" +
-    //             "</div></div>")
-    //         $("#recipe-id" + recipe.id).on('click', () => openRecipe(recipe))
-    //     })
-    //     addPaginationPart(page, data.totalPages, data.first, data.last);
-    // })
+        $("#total-recipe-amount").data.length;
+        if (data.length < 1) {
+            $("#recipes-list").html("<h1>Результати пошуку .... " + searchValue + "</h1>");
+            return;
+        }
+        $("#recipes-list").html("")
+        data.forEach(recipe => {
+            $("#recipes-list").append("<div class='row' id='recipe-id" + recipe.id + "'>" +
+                "    <div class='col-4 p-0'>" +
+                "    <img class='preview-recipe-img' alt='' src='" + recipe.image + "' />" +
+                "    </div>" +
+                "    <div class='col-8 p-3'>" +
+                "       <h3 class='text-truncate'>" + recipe.name + "</h3>" +
+                "       <p>" + recipe.description.substring(0, 50) + "...</p>" +
+                "</div></div>")
+            $("#recipe-id" + recipe.id).on('click', () => openRecipe(recipe))
+        })
+        addPaginationPart(page, data.totalPages, data.first, data.last);
+    })
 }
 
 loadPage();

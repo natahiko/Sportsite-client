@@ -21,7 +21,7 @@
 <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" href="./">
-            <img class="icon-logo" src="img/icon.png" alt="" />
+            <img class="icon-logo" src="img/icon-light.png" alt="" />
             <span class="sr-only">Sportsite</span>
         </a>
         <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar"
@@ -64,9 +64,9 @@
 <section class="section-intro" id="recipes" role="banner">
     <div class="h-100" style="overflow: auto">
         <div class="container">
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-10">
-                    <input type="text" class="w-100 search-input" id="recipes-search">
+                    <input type="text" class="w-100 search-input m-0" id="recipes-search">
                 </div>
                 <div class="col-2">
                     <input type="button" class="w-100 h-100" id="search-button" value="Шукати">
@@ -80,20 +80,16 @@
                 </div>
             </div>
             <div class="row" id="recipes-list-block">
-                <div class="col-3">
+                <div class="col-12" style="color: white">
                     <img alt="back" src="./img/icons/left-arrow.png"
                          class="back-icon recipes-category-back-button" id="recipes-category-back-button">
-                </div>
-                <div class="col-5 p-2">
-                    <span class="bg-white p-2">On page:</span>
-                    <select id="recipe-size-selector" class="form-select" aria-label="Default select example">
-                        <option value="1">1</option>
+                    <span class="p-2"><b>On page:</b></span>
+                    <select id="recipe-size-selector" class="form-select" aria-label="Default select example" style="color: black">
+                        <option value="2">2</option>
                         <option value="5">5</option>
                         <option value="10">10</option>
                     </select>
-                </div>
-                <div class="col-4 p-2">
-                    <span class="bg-white p-2">Total: <span id="total-recipe-amount"></span></span>
+                    <span class="p-2"><b>Total: <span id="total-recipe-amount"></span></b></span>
                 </div>
                 <div class="col-12" id="recipes-list">
                 </div>
@@ -127,6 +123,8 @@
                         </div>
                         <div class="row" id="recipe-ingrigients">
                         </div>
+                    </div>
+                    <div class="col-12">
                         <p id="recipe-description"></p>
                     </div>
                 </div>

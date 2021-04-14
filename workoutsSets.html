@@ -22,7 +22,7 @@
 <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" href="./">
-            <img class="icon-logo" src="img/icon.png" alt="" />
+            <img class="icon-logo" src="img/icon-light.png" alt="" />
             <span class="sr-only">Sportsite</span>
         </a>
         <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar"
@@ -72,8 +72,8 @@
             <div class="col-2 mb-2 mt-2">
                 <input type="button" class="w-100 h-100" id="search-button" value="Шукати">
             </div>
-            <div class="col-6">
-                <span class="bg-white p-2">Сортувати:</span>
+            <div class="col-12" style="color: black">
+                <span class="p-2"><b>Сортувати:</b></span>
                 <select id="workout-sort_by-selector" class="form-select h-100" aria-label="Default select example">
                     <option value="null" selected>-</option>
                     <option value="name_0">За ім'ям &darr;</option>
@@ -81,9 +81,7 @@
                     <option value="complexity_0">За складністю &darr;</option>
                     <option value="complexity_1">За складністю &uarr;</option>
                 </select>
-            </div>
-            <div class="col-6">
-                <span class="bg-white p-2">Складність:</span>
+                <span class="p-2"><b>Складність:</b></span>
                 <select id="workout-filter_by-selector" class="form-select h-100" aria-label="Default select example">
                     <option value="null">-</option>
                     <option value="1">1</option>
@@ -93,7 +91,7 @@
                     <option value="5">5</option>
                 </select>
 
-                <span class="bg-white p-2 ml-3">Всього: <span id="total-workout-amount"></span></span>
+                <span class="p-2 ml-3"><b>Всього: <span id="total-workout-amount"></span></b></span>
             </div>
         </div>
         <div class="row" id="workout-list">

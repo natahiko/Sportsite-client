@@ -248,8 +248,11 @@ button, select {
 
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     -webkit-appearance: button;
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 10px !important;
+    background: #cbe1ff;
 }
+
 
 button[disabled], html input[disabled] {
     cursor: default;
@@ -1868,7 +1871,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .nav-link {
-    display: inline-block
+    display: inline-block;
+    font-size: 16px;
 }
 
 .nav-link:focus, .nav-link:hover {

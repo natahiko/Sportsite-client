@@ -21,7 +21,7 @@
 <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
     <div class="container">
         <a class="navbar-brand" href="./">
-            <img class="icon-logo" src="img/icon.png" alt="" />
+            <img class="icon-logo" src="img/icon-light.png" alt="" />
             <span class="sr-only">Sportsite</span>
         </a>
         <a class="navbar-toggler hidden-md-up pull-xs-right" data-toggle="collapse" href="#collapsingNavbar"
@@ -67,21 +67,20 @@
 <section class="section-intro" id="user-profile">
     <div class="container profile-content">
         <div class="row">
-            <div class="col-4 offset-8"  style="margin-bottom: 20px">
+            <div class="col-4 offset-8" style="margin-bottom: 20px">
                 <button type="button" id="edit_button">Редагувати</button>
             </div>
             <div class="col-12 col-md-6">
                 <label for="user_name"><b>Ім'я</b></label>
                 <input type="text" placeholder="" id="user_name" required>
-
+                <br />
                 <label for="user_email"><b>Пошта</b></label>
                 <input type="text" placeholder="" id="user_email" required>
-
+                <br />
                 <label for="user_birth"><b>Дата народження</b></label>
                 <input type="date" name="calendar" value="" id="user_birth">
-            </div>
-            <div class="col-12 col-md-6">
                 <div class="row">
+
                     <div class="col-2" style="align-self: center;">
                         <img src="./img/height.png" class="profile-body-img">
                     </div>
@@ -96,6 +95,10 @@
                         <label for="user_weight" class="required"><b>Вага (кг)</b></label>
                         <input type="number" id="user_weight" required placeholder="60">
                     </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row">
                     <div class="col-2" style="align-self: center;">
                         <img src="./img/chest.png" class="profile-body-img">
                     </div>
@@ -126,13 +129,13 @@
                 <button type="button" id="delete_button">Видалити профіль</button>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3 mt-4">
             <div class="col-12 col-md-6"><h2>Обрані тренування:</h2></div>
             <div class="col-12 col-md-6"><h2>Обрані рецепти: </h2></div>
             <div class="col-12 col-md-6" id="liked-workout-set"></div>
             <div class="col-12 col-md-6">
                 Скоро очікується ...
-<!--                TODO-->
+                <!--                TODO-->
             </div>
         </div>
     </div>

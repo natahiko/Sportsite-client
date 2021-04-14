@@ -50,7 +50,7 @@ function openArticle (id) {
 }
 
 function addPaginationPart (curPage, totalPages, isFirst, isLast) {
-    $("#articles").append("<div class='col-12'><div class='row pagination'>" +
+    $("#pagination").html("<div class='col-12'><div class='row pagination'>" +
         "<div class='col-4 text-left'>" +
         (isFirst ? "" : "<a id='pagination-prev'><< " + curPage + "</a>") +
         "</div><div class='col-4 text-center'>" +
@@ -60,7 +60,7 @@ function addPaginationPart (curPage, totalPages, isFirst, isLast) {
         "</div></div></div>")
 
     $("#pagination-next").on('click', function () {
-        loca.setItem('blog-page', +curPage + 1);
+        localStorage.setItem('blog-page', +curPage + 1);
         loadBlogs();
     });
     $("#pagination-prev").on('click', function () {
@@ -87,8 +87,8 @@ function loadPage () {
         page = 0;
     }
     if (size === null) {
-        localStorage.setItem('blog-size', 5);
-        size = 5;
+        localStorage.setItem('blog-size', 6);
+        size = 6;
     }
     $("#blog-size-selector").val(size)
     $("#blog-size-selector").on('change', function (value) {
@@ -99,6 +99,7 @@ function loadPage () {
         $("#add-article").show(200);
         $("#article").hide();
         $("#articles").hide();
+        $("#pagination").hide();
     })
     $("#submit-add-article").on('click', uploadBlog)
     $("#blog-image-input").on('change', function () {
