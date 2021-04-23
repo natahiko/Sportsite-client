@@ -57,11 +57,11 @@ function addIngredientToList () {
         totalProteins += result.proteins
         totalFats += result.fats
         totalCarbohydrates += result.carbohydrates
-        $("#total-amount").html(totalAmount)
-        $("#total-calories").html(totalCalories)
-        $("#total-proteins").html(totalProteins)
-        $("#total-fats").html(totalFats)
-        $("#total-carbohydrates").html(totalCarbohydrates)
+        $("#total-amount").html(Number(totalAmount).toFixed(2))
+        $("#total-calories").html(Number(totalCalories).toFixed(2))
+        $("#total-proteins").html(Number(totalProteins).toFixed(2))
+        $("#total-fats").html(Number(totalFats).toFixed(2))
+        $("#total-carbohydrates").html(Number(totalCarbohydrates).toFixed(2))
         $("#total-block").show()
 
         $("#ingridient-selector").val('')
@@ -84,11 +84,11 @@ function clearIngradientList () {
     totalAmount = 0
     totalCarbohydrates = 0
 
-    $("#total-amount").html(totalAmount)
-    $("#total-calories").html(totalCalories)
-    $("#total-proteins").html(totalProteins)
-    $("#total-fats").html(totalFats)
-    $("#total-carbohydrates").html(totalCarbohydrates)
+    $("#total-amount").html(Number(totalAmount).toFixed(2))
+    $("#total-calories").html(Number(totalCalories).toFixed(2))
+    $("#total-proteins").html(Number(totalProteins).toFixed(2))
+    $("#total-fats").html(Number(totalFats).toFixed(2))
+    $("#total-carbohydrates").html(Number(totalCarbohydrates).toFixed(2))
 
     $("#loader").hide()
 }
